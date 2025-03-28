@@ -4,14 +4,7 @@ export default function MarketListing(){
 
     return (
         <View style={styles.container}>
-          <Image 
-            source={require('@/assets/images/partial-react-logo.png')} 
-            style={[styles.image, styles.smallImage]}
-          />
-          <Image 
-            source={require('@/assets/images/partial-react-logo.png')} 
-            style={[styles.image, styles.largeImage]}
-          />
+          <Text>Hey</Text>
         </View>
       );
 
@@ -20,17 +13,11 @@ export default function MarketListing(){
 const styles = StyleSheet.create({
     container: {
         flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        marginVertical: 10,
-    },
+        justifyContent:'space-evenly',
+    }, 
     image: {
-        aspectRatio: 1,
-        marginBottom: 10,
-    },
-    smallImage: {
-        width: '20%',
-    },
-    largeImage: {
-        width: '48%',
-    },
+      width: 100,
+      
+    }
+   
 });
