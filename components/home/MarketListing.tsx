@@ -1,23 +1,34 @@
 import { View, Text, Image, StyleSheet } from "react-native";
+import { Tabs } from "expo-router";
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 export default function MarketListing(){
 
     return (
-        <View style={styles.container}>
-          <Text>Hey</Text>
+        <View >
+          <Text
+          style={styles.container}
+          >Add your products here</Text>
+          
+         
         </View>
-      );
 
-     
+        
+    )
 }
+
 const styles = StyleSheet.create({
-    container: {
-        flexWrap: 'wrap',
-        justifyContent:'space-evenly',
-    }, 
-    image: {
-      width: 100,
-      
-    }
-   
+  container: {
+    margin: 10,
+    fontSize: 27,
+    fontWeight:'500',
+    justifyContent:'center',
+    textAlign:'center',
+    textDecorationLine:'underline', 
+    lineHeight: 40,
+    textAlignVertical:'center',
+    textTransform:'capitalize',
+
+ 
+  }
 });
