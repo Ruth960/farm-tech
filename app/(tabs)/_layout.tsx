@@ -1,8 +1,9 @@
 import { Tabs } from 'expo-router';
 import React from 'react'; 
 import { Platform } from 'react-native';
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
@@ -33,31 +34,34 @@ export default function TabLayout() {
       name="index"
       options={{
         title: 'Home',
-        tabBarIcon: ({ color }) => <IconSymbol size={20} name="house.fill" color={color} />,
+        tabBarIcon: () => <IconSymbol size={20} name="house.fill" color='white' />,
       }}
       />
       <Tabs.Screen
       name="community"
       options={{
-        title: 'Community',
-        tabBarIcon: ({ color }) => <Ionicons name="people-circle-outline" size={20} color={color} />,
+        title: 'Forum',
+        tabBarIcon: () => 
+          <MaterialCommunityIcons name="message-outline" size={28} color='white' />,
       }}
       />
-      <Tabs.Screen
-      name="shop"
+       <Tabs.Screen
+      name="cart"
       options={{
-        title: 'Shop',
-        tabBarIcon: ({ color }) => <FontAwesome5 name="shopping-basket" size={20} color={color} />,
+        title: 'Cart',
+        tabBarIcon: () =><AntDesign name="shoppingcart" size={28} color='white' />,
       }}
       />
-
+      
       <Tabs.Screen
       name="explore"
       options={{
-        title: 'Explore',
-        tabBarIcon: ({ color }) => <IconSymbol size={20} name="paperplane.fill" color={color} />,
+        title: 'Profile',
+        tabBarIcon: () => <MaterialCommunityIcons name="account-circle" size={28} color='white' />,
+
       }}
       />
+     
     </Tabs>
   );
 }

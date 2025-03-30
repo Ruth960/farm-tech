@@ -1,39 +1,23 @@
-import {View, SafeAreaView, StyleSheet, Text} from 'react-native';
-import CreateCommunity  from "@/components/community/CreateNewCommunity";
-import CreateGroup from "@/components/community/CreateNewgroup";
+import { View, SafeAreaView, Text, StyleSheet} from 'react-native';
+import SearchBar from '@/components/home/SearchBar'
+import Navbar from '@/components/home/Navbar';
+import Topics from '@/components/communityForum/AgriTopics';
+import CommunityPosts from '@/components/communityForum/CommunityPosts';
 
-export default function CommunityTab(){
+export default function Community() {
+
     return(
         <SafeAreaView
         style={{
             backgroundColor:'white',
             height: '100%',
-        }}
-        >
-            <View>
-                <CreateCommunity/>
-                <CreateGroup/>
-            </View>
-            <View>
-                <Text
-                style={styles.text}>
-                List of members you are connected to</Text>
-            </View>
             
-
+        }}>
+            <Navbar/>
+            <SearchBar/>
+            <Topics/>
+            <CommunityPosts/>
         </SafeAreaView>
+        
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    text: {
-        color: 'grey',
-        padding: 10,
-        fontSize: 10,
-        margin: 3,
-        fontStyle: 'italic',
-    },
-});
