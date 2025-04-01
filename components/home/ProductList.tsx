@@ -85,7 +85,7 @@ export default function ProductList() {
     },
       {
       id: 9,
-      name: 'Juicy Oranges',
+      name: ' Oranges',
       price: 75,
       unit: 'kg',
       farmer: 'Citrus Grove',
@@ -116,7 +116,7 @@ export default function ProductList() {
       price: 20,
       unit: 'piece',
       farmer: 'Avocado farms',
-      image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXZvY2Fkb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Favocado-basket&psig=AOvVaw1HPqDEmyIalOmyzKa3J2WQ&ust=1743534070888000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCQxN2AtYwDFQAAAAAdAAAAABAE',
       distance: '13.1 km',
       },
       {

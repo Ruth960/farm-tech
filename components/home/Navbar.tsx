@@ -25,15 +25,7 @@ export default function Navbar (){
                 Farm Connect
             </Text>
             </View>
-            <View>
-            <Text style={{
-                
-                fontSize: 24,
-                fontWeight: 'bold',
-            }}>
-                Register
-            </Text>
-            </View>
+            
         </View>
             
         

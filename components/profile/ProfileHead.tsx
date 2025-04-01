@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
+import SignUp from '@/app/(auth)/register';
+import SignIn from '@/app/(auth)/signIn';
 
 export default function ProfileHead() {
   const productCount = 24;
@@ -9,15 +11,31 @@ export default function ProfileHead() {
   const postsCount = 14;
 
   return (
+   
     <ScrollView>
         <View style={styles.container}>
       <View style={styles.profileHeader}>
         <Image
-          source={{ uri: 'https://randomuser.me/api/portraits/men/32.jpg' }}
+          source={{ uri: 'https://www.shutterstock.com/search/blank-profile-picture' }}
           style={styles.image}
         />
-        <Text style={styles.profileName}>Jane Job</Text>
-        <Text style={styles.profileBio}>Maize and Potatoes farmer</Text>
+        <View>
+                <TouchableOpacity>
+                     <Text style={{
+                
+                        fontSize: 24,
+                        fontWeight: 'bold',
+                        color:'white',
+                        margin: 10,
+
+                    }}>
+                        sign in
+                    </Text>
+                </TouchableOpacity>
+           
+            </View>
+       
+       
       </View>
 
       <View style={styles.statsContainer}>
@@ -47,7 +65,7 @@ export default function ProfileHead() {
           Account Setting
         </Text>
         <Text style={styles.settingItem}>
-          <Feather name="help-circle" size={24} color="grey" style={styles.icon} />
+        <Feather name="help-circle" size={24} color="grey" style={styles.icon} />
           Help and Support
         </Text>
         <Text style={styles.settingItem}>
@@ -72,19 +90,21 @@ const styles = StyleSheet.create({
   },
   profileHeader: {
     backgroundColor: 'green',
+    flexDirection:'row',
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
     marginTop:10,
     width: '90%',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 15, // Add padding for better spacing
+    
+    paddingVertical: 15, 
   },
   image: {
-    width: 160,
-    height: 160,
-    borderRadius: '50%',
+    width: 50,
+    height: 50,
+    borderRadius: 80,
     marginBottom: 10,
+    backgroundColor:'grey',
   },
   profileName: {
     fontSize: 20,
@@ -151,6 +171,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-    marginRight: 15,
+    margin: 10,
+    // padding: 3,
+
   },
 })
