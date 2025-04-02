@@ -6,7 +6,7 @@ export default function Hero() {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Categories</Text>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollContainer}>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} style={styles.scrollContainer}>
                 <View style={styles.buttonRow}>
                     {buttons.map((button, index) => (
                         <TouchableOpacity key={index} style={styles.button}>

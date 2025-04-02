@@ -14,6 +14,7 @@ export default function SearchBar() {
           
           placeholder="Search"
           placeholderTextColor="#ccc"
+          
         />
         <AntDesign name="search1" size={24} color="black" />
 

@@ -13,6 +13,7 @@ export default function ProfileHead() {
   return (
    
     <ScrollView>
+      
         <View style={styles.container}>
       <View style={styles.profileHeader}>
         <Image
