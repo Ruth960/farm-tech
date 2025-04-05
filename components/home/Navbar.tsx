@@ -21,7 +21,7 @@ export default function Navbar (){
                 fontSize: 24,
                 fontWeight: 'bold',
                 
-            }}>
+            }}> 
                 Farm Connect
             </Text>
             </View>

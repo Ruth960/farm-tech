@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, TouchableOpacity, TextInput, ActivityIndicator} 
 import {useState} from 'react';
 import {useRouter} from 'expo-router';
 
-export default function SignUp(){
+export default function SignUp(){ 
 
      const router = useRouter();
       const [fullName, setFullName] = useState('');
@@ -60,6 +60,16 @@ export default function SignUp(){
             secureTextEntry
             style={styles.input}
             />
+             <Text>
+                    Forgot your password? 
+                    <Text style={{
+                        color:'rgb(12, 12, 138)',
+                         fontStyle:'italic',
+                          fontWeight:'bold',
+                        }}
+                        onPress={() => router.push('/(auth)/forgotPassword')}
+                          >reset password</Text>
+                </Text>
             
             <TouchableOpacity style={{
                 backgroundColor:'rgb(12, 12, 138)',
@@ -80,6 +90,7 @@ export default function SignUp(){
                 >sign in</Text >
                 )}
                 </TouchableOpacity>
+
                 <Text>
                     Already have an account? 
                     <Text style={{

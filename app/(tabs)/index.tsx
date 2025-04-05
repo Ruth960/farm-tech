@@ -11,10 +11,11 @@ export default function HomeScreen() {
   
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <Navbar />
+      <Navbar />
         <SearchBar />
         <Hero />
+      <ScrollView>
+        
         <ProductList />
         
       </ScrollView>

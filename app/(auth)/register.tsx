@@ -80,7 +80,7 @@ export default function SignUp(){
             <TouchableOpacity style={{
                 backgroundColor:'rgb(12, 12, 138)',
                 borderRadius: 25,
-                padding: 10,
+                padding: 10, 
                 width:150,
                 margin:10,}}
                 onPress={handleSignUp} disabled={loading}>

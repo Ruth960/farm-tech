@@ -2,19 +2,17 @@ import React from 'react';
 import { TouchableOpacity, View, TextInput, StyleSheet } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-/**
- * A reusable search bar component.
- */
+
 export default function SearchBar() {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.searchBar}>
-        <TextInput
+        <TextInput 
           style={styles.input}
           
           placeholder="Search"
           placeholderTextColor="#ccc"
-          
+           
         />
         <AntDesign name="search1" size={24} color="black" />
 

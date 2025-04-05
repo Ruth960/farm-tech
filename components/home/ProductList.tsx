@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
 
-export default function ProductList() {
+export default function ProductList() { 
   const products = [
     {
       id: 1,

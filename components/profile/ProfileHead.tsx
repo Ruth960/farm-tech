@@ -4,8 +4,26 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
 import SignUp from '@/app/(auth)/register';
 import SignIn from '@/app/(auth)/signIn';
+import {useState} from 'react';
+import { useRouter } from 'expo-router';
+
+
 
 export default function ProfileHead() {
+  
+  const router = useRouter();
+      
+      const [loading, setLoading] = useState (false);
+
+       const handleSignUp = async () => {
+          setLoading (true);
+      
+          setTimeout (() => {
+            setLoading (false);
+            router.push('/(auth)/signIn');
+          }, 2000);
+        };
+
   const productCount = 24;
   const salesCount = 156;
   const postsCount = 14;
@@ -28,8 +46,11 @@ export default function ProfileHead() {
                         fontWeight: 'bold',
                         color:'white',
                         margin: 10,
+                       
 
-                    }}>
+                    }} onPress={() => router.push('/(auth)/signIn')}
+
+                    >
                         sign in
                     </Text>
                 </TouchableOpacity>
