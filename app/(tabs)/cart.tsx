@@ -1,5 +1,5 @@
 import { SafeAreaView, Text} from "react-native";
-import Hero  from "@/components/home/Hero";
+import Hero  from "@/components/home/Categories";
 import Navbar from "@/components/home/Navbar";
 
 export default function Procucts(){

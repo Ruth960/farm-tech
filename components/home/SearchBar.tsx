@@ -1,52 +1,57 @@
-import React from 'react';
-import { TouchableOpacity, View, TextInput, StyleSheet } from 'react-native';
-import AntDesign from '@expo/vector-icons/AntDesign';
+import React, { useState } from 'react';
+import { View, TextInput, StyleSheet } from 'react-native';
+import { Search } from 'lucide-react-native';
 
+interface SearchBarProps {
+  onSearch: (query: string) => void;
+}
 
-export default function SearchBar() {
+export default function SearchBar({ onSearch }: SearchBarProps) {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (text: string) => {
+    setSearchQuery(text);
+    onSearch(text);
+  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.searchBar}>
-        <TextInput 
+      <View style={styles.inputContainer}>
+        <TextInput
           style={styles.input}
-          
-          placeholder="Search"
-          placeholderTextColor="#ccc"
-           
+          placeholder="Search products..."
+          value={searchQuery}
+          onChangeText={handleSearch}
         />
-        <AntDesign name="search1" size={24} color="black" />
-
-      </TouchableOpacity>
+        <Search size={24} color="#4b5563" />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#fff',
-    borderRadius: 30,
+    marginVertical: 16,
+    padding: 8,
+    backgroundColor: 'white',
+    borderRadius: 9999,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   input: {
-    height: 30,
-    
-    padding: 2,
+    borderWidth: 0,
+    shadowOpacity: 0,
     fontSize: 16,
-    color: '#333',
-    
+    paddingVertical: 4,
   },
-  searchBar: {
-    flexDirection:'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
-    elevation: 4,
-  }
 });

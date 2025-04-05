@@ -1,8 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
+import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
 
-export default function ProductList() { 
-  const products = [
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  unit: string;
+  farmer: string;
+  image: string;
+  distance: string;
+  category: string;
+}
+
+interface ProductListProps {
+  searchQuery: string;
+  selectedCategory: string;
+}
+
+export default function ProductList({ searchQuery, selectedCategory }: ProductListProps) {
+  const products: Product[] = [
     {
       id: 1,
       name: 'Fresh Tomatoes',
@@ -12,6 +28,7 @@ export default function ProductList() {
       image:
         'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       distance: '2.5 km',
+      category: 'Vegetables',
     },
     {
       id: 2,
@@ -22,6 +39,7 @@ export default function ProductList() {
       image:
         'https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       distance: '4.2 km',
+      category: 'Vegetables',
     },
     {
       id: 3,
@@ -32,6 +50,7 @@ export default function ProductList() {
       image:
         'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       distance: '3.7 km',
+      category: 'Vegetables',
     },
     {
       id: 4,
@@ -42,6 +61,7 @@ export default function ProductList() {
       image:
         'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       distance: '5.1 km',
+      category: 'Eggs',
     },
     {
       id: 5,
@@ -52,6 +72,7 @@ export default function ProductList() {
       image:
         'https://images.unsplash.com/photo-1606709923830-244e662998a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       distance: '6.0 km',
+      category: 'Vegetables',
     },
     {
       id: 6,
@@ -62,6 +83,7 @@ export default function ProductList() {
       image:
         'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       distance: '7.5 km',
+      category: 'Fruits',
     },
     {
       id: 7,
@@ -69,9 +91,9 @@ export default function ProductList() {
       price: 90,
       unit: 'kg',
       farmer: 'Orchard Valley',
-      image:
-        'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+      image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       distance: '8.2 km',
+      category: 'Fruits',
     },
     {
       id: 8,
@@ -82,116 +104,110 @@ export default function ProductList() {
       image:
         'https://images.unsplash.com/photo-1599825442567-c25f9b48c908?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       distance: '9.0 km',
+      category: 'Vegetables',
     },
-      {
+    {
       id: 9,
-      name: ' Oranges',
+      name: 'Oranges',
       price: 75,
       unit: 'kg',
       farmer: 'Citrus Grove',
-      image: 'https://images.unsplash.com/photo-1547514301-42534f3c6a85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3Jhbmdlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      image:
+        'https://images.unsplash.com/photo-1547514301-42534f3c6a85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3Jhbmdlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
       distance: '10.5 km',
-      },
-      {
+      category: 'Fruits',
+    },
+    {
       id: 10,
       name: 'Farm Fresh Milk',
       price: 150,
       unit: 'litre',
       farmer: 'Dairy Delight',
-      image: 'https://images.unsplash.com/photo-1604537353950-9186d96d9976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWlsa3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      image:
+        'https://images.unsplash.com/photo-1604537353950-9186d96d9976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWlsa3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
       distance: '11.8 km',
-      },
-      {
+      category: 'Dairy',
+    },
+    {
       id: 11,
-      name: 'Honey',
-      price: 450,
-      unit: 'jar',
-      farmer: 'Bee keepers',
-      image: 'https://images.unsplash.com/photo-1598886361327-046645c36192?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvbWV5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
-      distance: '12.3 km',
-      },
-      {
-      id: 12,
-      name: 'Avocado',
-      price: 20,
-      unit: 'piece',
-      farmer: 'Avocado farms',
-      image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Favocado-basket&psig=AOvVaw1HPqDEmyIalOmyzKa3J2WQ&ust=1743534070888000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCQxN2AtYwDFQAAAAAdAAAAABAE',
-      distance: '13.1 km',
-      },
-      {
-      id: 13,
-      name: 'Fresh Ginger',
-      price: 180,
-      unit: 'kg',
-      farmer: 'Spice Land',
-      image: 'https://images.unsplash.com/photo-1605298533168-8f8b8949826d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2luZ2VyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
-      distance: '14.7 km',
-      },
-      {
-      id: 14,
-      name: 'Onions',
+      name: 'Whole Wheat Bread',
       price: 65,
+      unit: 'loaf',
+      farmer: 'Bakery Fresh',
+      image:
+        'https://images.unsplash.com/photo-1598373182133-52452f7691ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJyZWFkfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+      distance: '3.2 km',
+      category: 'Grains',
+    },
+    {
+      id: 12,
+      name: 'Brown Rice',
+      price: 120,
       unit: 'kg',
-      farmer: 'Veggie farm',
-      image: 'https://images.unsplash.com/photo-1559218766-3b5622144776?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b25pb25zfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
-      distance: '15.2km'
-      }
-  
+      farmer: 'Rice Fields',
+      image:
+        'https://images.unsplash.com/photo-1586201375761-83865001e8ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmljZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      distance: '7.8 km',
+      category: 'Cereals',
+    },
   ];
 
-  interface Product {
-    id: number;
-    name: string;
-    price: number;
-    unit: string;
-    farmer: string;
-    image: string;
-    distance: string;
-  }
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'All products' || product.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
-  interface ProductCardProps {
-    product: Product;
-  }
-
-  const ProductCard = ({ product }: ProductCardProps) => {
-    return (
-      <View style={styles.productCard}>
-        <Image
-          source={{ uri: product.image }}
-          style={styles.image}
-        />
-        <View style={styles.productInfo}>
-          <Text style={styles.productName}>{product.name}</Text>
-          <Text style={styles.productPrice}>{"Ksh"}{product.price} {'/'}{product.unit}</Text>
-          <Text style={styles.productFarmer}>{product.farmer}</Text>
-          <Text style={styles.productDistance}>{product.distance}</Text>
-        </View>
+  const renderProductItem = ({ item }: { item: Product }) => (
+    <View style={styles.card}>
+      <View style={styles.imageContainer}>
+        <Image source={{ uri: item.image }} style={styles.image} />
       </View>
-    );
-  };
+      <View style={styles.content}>
+        <Text style={styles.name}>{item.name}</Text>
+        <Text style={styles.price}>
+          Ksh {item.price} /{item.unit}
+        </Text>
+        <Text style={styles.farmer}>{item.farmer}</Text>
+        <Text style={styles.distance}>{item.distance}</Text>
+        <Text style={styles.category}>{item.category}</Text>
+      </View>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={products}
-        renderItem={({ item }) => <ProductCard product={item} />}
-        keyExtractor={(item) => item.id.toString()}
-        numColumns={2} 
-      />
+      {filteredProducts.length > 0 ? (
+        <FlatList
+          data={filteredProducts}
+          renderItem={renderProductItem}
+          keyExtractor={(item) => item.id.toString()}
+          numColumns={2}
+          columnWrapperStyle={styles.grid}
+        />
+      ) : (
+        <Text style={styles.noProducts}>No products found. Try a different search or category.</Text>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 10,
+    paddingVertical: 16,
   },
-  productCard: {
-    flex: 1, 
-    margin: 5,
-    backgroundColor: '#fff',
+  grid: {
+    justifyContent: 'space-around',
+    paddingHorizontal: 8,
+  },
+  noProducts: {
+    textAlign: 'center',
+    padding: 32,
+    color: '#6b7280',
+    fontSize: 18,
+  },
+  card: {
+    backgroundColor: 'white',
     borderRadius: 8,
     overflow: 'hidden',
     shadowColor: '#000',
@@ -199,31 +215,50 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 3,
+    marginBottom: 16,
+    flex: 1,
+    marginHorizontal: 8,
+  },
+  imageContainer: {
+    height: 192,
+    width: '100%',
   },
   image: {
-    width: 200,
-    height: 150, 
+    width: '100%',
+    height: '100%',
     resizeMode: 'cover',
   },
-  productInfo: {
-    padding: 10,
+  content: {
+    padding: 16,
   },
-  productName: {
-    fontSize: 16,
+  name: {
     fontWeight: '500',
+    fontSize: 16,
+    marginBottom: 4,
   },
-  productPrice: {
-    fontSize: 14,
-    color: 'black',
+  price: {
     fontWeight: 'bold',
+    fontSize: 14,
+    marginBottom: 4,
   },
-  productFarmer: {
+  farmer: {
+    color: '#6b7280',
     fontSize: 12,
-    color: 'gray',
+    marginBottom: 4,
   },
-  productDistance: {
+  distance: {
+    color: '#6b7280',
     fontSize: 12,
-    color: 'gray',
     textAlign: 'right',
+  },
+  category: {
+    backgroundColor: '#e9f5e9',
+    color: '#16a34a',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 9999,
+    fontSize: 12,
+    marginTop: 8,
+    alignSelf: 'flex-start'
   },
 });

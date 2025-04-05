@@ -1,47 +1,48 @@
-import { ScrollView, FlatList, StyleSheet, Platform, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Navbar from '@/components/home/Navbar'
+import SearchBar from '@/components/home/SearchBar'
+import Categories from '@/components/home/Categories'
+import ProductList from '@/components/home/ProductList'
 
-import Navbar from '@/components/home/Navbar';
-import SearchBar from '@/components/home/SearchBar';
-import Hero from '@/components/home/Hero';
-import AddItems from '@/components/home/AddItems';
-import ProductList from '@/components/home/ProductList';
+export default function HomeScreen(): React.JSX.Element {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All products');
 
-export default function HomeScreen() {
-  
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+  };
+
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory(category);
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.main}>
       <Navbar />
-        <SearchBar />
-        <Hero />
-      <ScrollView>
-        
-        <ProductList />
-        
+       <SearchBar onSearch={handleSearch} />
+        <Categories
+          onSelectCategory={handleCategorySelect}
+          selectedCategory={selectedCategory}
+        />
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+       
+        <ProductList searchQuery={searchQuery} selectedCategory={selectedCategory} />
       </ScrollView>
-      <AddItems/>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    margin: 12,
-    backgroundColor: 'white',
-    height: '100%',
+  main: {
+    flex: 1,
+    backgroundColor: '#f9fafb',
   },
-  heroSection: {
-    marginBottom: 20,
-  },
-  iconStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 40,
-    height: 40,
-    backgroundColor: 'green',
-    borderRadius: 5,
-    position: 'absolute',
-    top: 490,
-    right: 30,
+  contentContainer: {
+    maxWidth: 1200,
+    marginHorizontal: 'auto',
+    paddingHorizontal: 16,
+    paddingVertical: 24,
   },
 });
