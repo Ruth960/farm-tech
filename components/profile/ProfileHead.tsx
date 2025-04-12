@@ -2,8 +2,6 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
-import SignUp from '@/app/(auth)/register';
-import SignIn from '@/app/(auth)/signIn';
 import {useState} from 'react';
 import { useRouter } from 'expo-router';
 
@@ -13,7 +11,7 @@ export default function ProfileHead() {
   
   const router = useRouter();
       
-      const [loading, setLoading] = useState (false);
+      const [loading, setLoading] = useState (true);
 
        const handleSignUp = async () => {
           setLoading (true);
