@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
+
 import {useState} from 'react';
 import { useRouter } from 'expo-router';
 
