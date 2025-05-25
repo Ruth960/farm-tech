@@ -1,5 +1,5 @@
 ## FarmConnect _Mobile Version
-FarmConnect is a platform that bridges the gap between small-scale farmers and buyers, allowing farmers without internet access to sell their produce at fair prices through mobile-based listings. The system will initially be built as a web-based platform with future plans for a mobile app.
+FarmConnect is a platform that bridges the gap between small-scale farmers and buyers, allowing farmers without internet access to sell their produce at fair prices through mobile-based listings. The platform will be a mobile app as most the targeted use phone and have no access to internet. Being able to make the application work offline is the main goal
 
    Goals & Objectives
 
