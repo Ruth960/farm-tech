@@ -81,18 +81,27 @@ export default function ProfileHead() {
       </View>
 
       <View style={styles.settingsContainer}>
-        <Text style={styles.settingItem}>
-          <AntDesign name="setting" size={24} color="grey" style={styles.icon} />
-          Account Setting
-        </Text>
-        <Text style={styles.settingItem}>
-        <Feather name="help-circle" size={24} color="grey" style={styles.icon} />
-          Help and Support
-        </Text>
-        <Text style={styles.settingItem}>
-          <AntDesign name="logout" size={24} color="grey" style={styles.icon} />
-          Sign out
-        </Text>
+        <TouchableOpacity>
+          <Text style={styles.settingItem}>
+              <AntDesign name="setting" size={24} color="grey" style={styles.icon} />
+              Account Setting
+          </Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity>
+          <Text style={styles.settingItem}>
+            <Feather name="help-circle" size={24} color="grey" style={styles.icon} />
+              Help and Support
+          </Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity>
+            <Text style={styles.settingItem}>
+              <AntDesign name="logout" size={24} color="grey" style={styles.icon} />
+              Sign out
+            </Text>
+        </TouchableOpacity>
+        
       </View>
     </View>
     </ScrollView>
