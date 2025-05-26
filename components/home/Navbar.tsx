@@ -1,4 +1,6 @@
 import {View, Text, StyleSheet, ScrollView, Animated, Dimensions, TouchableOpacity} from 'react-native';
+import AntDesign from '@expo/vector-icons/AntDesign';
+
 export default function Navbar (){
 
     
@@ -24,6 +26,9 @@ export default function Navbar (){
             }}> 
                 Farm Connect
             </Text>
+            </View>
+            <View>
+                <Text><AntDesign name="shoppingcart" size={24} color="green" /></Text>
             </View>
             
         </View>
