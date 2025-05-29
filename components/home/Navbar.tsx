@@ -28,7 +28,7 @@ export default function Navbar (){
             </Text>
             </View>
             <View>
-                <Text><AntDesign name="shoppingcart" size={24} color="green" /></Text>
+                <Text><AntDesign name="shoppingcart" size={24} color="white" /></Text>
             </View>
             
         </View>

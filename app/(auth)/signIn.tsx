@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ActivityIndicator, Alert } from 'react-native';
 import { useState } from 'react';
 import { useRouter } from 'expo-router';
+import { useAuth } from '../../context/AuthContext';
 
 export default function SignIn() {
   const router = useRouter();
+  const { signIn } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -27,8 +29,8 @@ export default function SignIn() {
       const data = await response.json();
 
       if (response.ok) {
-        alert(data.message || 'Login successful');
-        router.push('/profile'); // Or your main screen
+        await signIn(data.token, data.user); // Save token and user
+        router.push('/profile');
       } else {
         alert(data.error || 'Login failed');
       }
