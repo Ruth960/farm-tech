@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, View,  StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Navbar from '@/components/home/Navbar'
 import SearchBar from '@/components/home/SearchBar'
@@ -11,12 +11,13 @@ export default function HomeScreen(): React.JSX.Element {
   
 
   return (
-    <SafeAreaView style={styles.main}>
+    <View>
       <Navbar />
-      <ScrollView > 
-       
-      </ScrollView>
-    </SafeAreaView>
+      <View >
+        <SearchBar/>
+      </View>
+    
+    </View>
   );
 }
 
