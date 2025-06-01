@@ -1,15 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
+import Navbar from '@/components/home/Navbar';
+import ResourcesSection  from '@/components/resources/Resources';
 
 
-export default function Resources() {
+export default function Resources(){
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-        <View style={styles.container}>
-              <Text  style={styles.title}>Resources</Text>
-            <Text style={styles.text}>This page is under construction.</Text>
-            <Text >Please check back later for updates.</Text>
-        </View>
+      <Navbar/>
+      <ResourcesSection/>
     
     </SafeAreaView>
   );
