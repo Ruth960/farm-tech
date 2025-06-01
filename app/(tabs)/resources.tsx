@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
+import { View, StyleSheet, ScrollView, Text, SafeAreaView } from 'react-native';
 import Navbar from '@/components/home/Navbar';
 import ResourcesSection  from '@/components/resources/Resources';
 
@@ -8,7 +8,9 @@ export default function Resources(){
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <Navbar/>
-      <ResourcesSection/>
+      <ScrollView>
+          <ResourcesSection/>
+      </ScrollView>
     
     </SafeAreaView>
   );

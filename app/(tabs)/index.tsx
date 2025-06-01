@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView, View,  StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Navbar from '@/components/home/Navbar'
-import SearchBar from '@/components/home/SearchBar'
+import Highlights from '@/components/home/Highlights';
 import HeroSection from '@/components/home/HeroSection';
 export default function HomeScreen(): React.JSX.Element {
   
@@ -13,7 +13,7 @@ export default function HomeScreen(): React.JSX.Element {
         
         <ScrollView >
           <HeroSection />
-          
+          <Highlights />
         </ScrollView>
           
     

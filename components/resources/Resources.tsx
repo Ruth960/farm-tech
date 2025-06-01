@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Resources() {
     return (
-        <ScrollView style={styles.wrapper}>
+        <View style={styles.wrapper}>
            
             <Text style={styles.sectionTitle}>Featured Resources</Text>
             <View style={styles.cardRow}>
@@ -48,7 +48,7 @@ export default function Resources() {
                     <Text style={styles.cardDesc}>Direct access to agricultural experts</Text>
                 </View>
             </View>
-        </ScrollView>
+        </View>
     );
 }
 
