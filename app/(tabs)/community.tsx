@@ -11,7 +11,7 @@ export default function Community() {
 
     return (
         <View style={{ flex: 1 }}>
-            <SafeAreaView
+            <View
                 style={{
                     backgroundColor: 'white',
                     flex: 1,
@@ -32,10 +32,10 @@ export default function Community() {
                 ) : (
                     <CommunityPosts />
                 )}
-            </SafeAreaView>
+            </View>
             {!showCreatePost && (
                 <TouchableOpacity
-                    style={styles.fab}
+                    style={styles.container}
                     activeOpacity={0.8}
                     onPress={() => {
                         setShowCreatePost(true);
@@ -49,7 +49,7 @@ export default function Community() {
 }
 
 const styles = StyleSheet.create({
-    fab: {
+    container: {
         position: 'absolute',
         right: 24,
         bottom: 32,

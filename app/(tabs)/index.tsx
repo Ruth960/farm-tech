@@ -10,14 +10,14 @@ import Cart  from '@/components/cart'
 export default function HomeScreen(): React.JSX.Element {
   
 
-  return (
-    <View>
-      <Navbar />
-      <View >
-        <SearchBar/>
+    return (
+      <SafeAreaView>
+        <Navbar />
+        <View >
+          <SearchBar onSearch={(query: string) => { /* what are you seaching */ }} />
       </View>
     
-    </View>
+    </SafeAreaView>
   );
 }
 
