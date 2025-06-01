@@ -8,10 +8,8 @@ import {View, SafeAreaView, StyleSheet, Text} from 'react-native';
 export default function Explore(){
     return(
         <SafeAreaView 
-      
-        
+ 
         style={styles.container}
-
         >
             <ProfileHead />
         </SafeAreaView>

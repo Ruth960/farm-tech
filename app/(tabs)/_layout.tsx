@@ -3,6 +3,7 @@ import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { HapticTab } from '@/components/HapticTab';
@@ -18,8 +19,9 @@ export default function TabLayout() {
     <Tabs
     
       screenOptions={{
-      tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+      
       tabBarInactiveTintColor:'black',
+      tabBarActiveTintColor:'green',
       headerShown: false,
       tabBarButton: HapticTab,
       tabBarBackground: TabBarBackground,
@@ -43,6 +45,15 @@ export default function TabLayout() {
         tabBarIcon: () => <IconSymbol size={20} name="house.fill" color='green' />,
       }}
       />
+
+      <Tabs.Screen
+      name="products"
+      options={{
+        title: 'Products',
+        tabBarIcon: () => <MaterialIcons name="manage-search" size={28} color="green" />,
+      }}
+      />
+
       <Tabs.Screen
       name="community"
       options={{
@@ -51,13 +62,7 @@ export default function TabLayout() {
           <MaterialCommunityIcons name="message-outline" size={28} color='green' />,
       }}
       />
-       <Tabs.Screen
-      name="cart"
-      options={{
-        title: 'Cart',
-        tabBarIcon: () =><AntDesign name="shoppingcart" size={28} color='green' />,
-      }}
-      />
+       
 
       <Tabs.Screen
       name="resources"
