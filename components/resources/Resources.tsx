@@ -29,20 +29,20 @@ export default function Resources() {
                 </View>
             </View>
 
-            {/* Learning Hub */}
+           
             <Text style={styles.sectionTitle}>Learning Hub</Text>
             <View style={styles.cardRow}>
-                <View style={styles.cardAlt}>
+                <View style={styles.card}>
                     <Text style={styles.icon}>▶️</Text>
                     <Text style={styles.cardTitle}>Video Tutorials</Text>
                     <Text style={styles.cardDesc}>Access hundreds of farming technique videos</Text>
                 </View>
-                <View style={styles.cardAlt}>
+                <View style={styles.card}>
                     <Text style={styles.icon}>📝</Text>
                     <Text style={styles.cardTitle}>Farming Guides</Text>
                     <Text style={styles.cardDesc}>Comprehensive guides for sustainable farming</Text>
                 </View>
-                <View style={styles.cardAlt}>
+                <View style={styles.card}>
                     <Text style={styles.icon}>💬</Text>
                     <Text style={styles.cardTitle}>Expert Support</Text>
                     <Text style={styles.cardDesc}>Direct access to agricultural experts</Text>
@@ -86,19 +86,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.05,
         shadowRadius: 4,
     },
-    cardAlt: {
-        backgroundColor: '#f8f9fa',
-        borderRadius: 12,
-        padding: 22,
-        margin: 8,
-        minWidth: 220,
-        maxWidth: 320,
-        alignItems: 'flex-start',
-        elevation: 1,
-        shadowColor: '#000',
-        shadowOpacity: 0.03,
-        shadowRadius: 2,
-    },
+    
     icon: {
         fontSize: 32,
         color: '#00b386',
