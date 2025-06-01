@@ -5,30 +5,16 @@ import Navbar from '@/components/home/Navbar'
 import SearchBar from '@/components/home/SearchBar'
 import Categories from '@/components/home/Categories'
 import ProductList from '@/components/home/ProductList'
+import Cart  from '@/components/cart'
 
 export default function HomeScreen(): React.JSX.Element {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All products');
-
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-  };
-
-  const handleCategorySelect = (category: string) => {
-    setSelectedCategory(category);
-  };
+  
 
   return (
     <SafeAreaView style={styles.main}>
       <Navbar />
-       <SearchBar onSearch={handleSearch} />
-        <Categories
-          onSelectCategory={handleCategorySelect}
-          selectedCategory={selectedCategory}
-        />
-      <ScrollView contentContainerStyle={styles.contentContainer}>
+      <ScrollView > 
        
-        <ProductList searchQuery={searchQuery} selectedCategory={selectedCategory} />
       </ScrollView>
     </SafeAreaView>
   );

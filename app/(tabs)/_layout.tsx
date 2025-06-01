@@ -3,7 +3,7 @@ import React from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
@@ -56,6 +56,14 @@ export default function TabLayout() {
       options={{
         title: 'Cart',
         tabBarIcon: () =><AntDesign name="shoppingcart" size={28} color='green' />,
+      }}
+      />
+
+      <Tabs.Screen
+      name="resources"
+      options={{
+        title: 'Recources',
+        tabBarIcon: () =><Ionicons name="notifications" size={28} color="green"  />,
       }}
       />
       
