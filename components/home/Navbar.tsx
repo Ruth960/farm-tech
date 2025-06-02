@@ -2,16 +2,17 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
-import Cart from '@/components/cart'; 
+import {useRouter}  from 'expo-router';
 export default function Navbar() {
-  const navigation = useNavigation();
+  
+  const router = useRouter();
 
   return (
     <View style={styles.navbar}>
       <Text style={styles.title}>Farm Connect</Text>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('Cart')}
+        onPress={() => router.push('/cart')}
         accessibilityLabel="View Cart"
       >
         <AntDesign name="shoppingcart" size={28} color="#fff" />
