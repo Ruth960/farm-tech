@@ -1,42 +1,91 @@
-import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet } from "react-native";
-import React from "react";
+import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, Modal } from "react-native";
+import React, { useState } from "react";
 import Navbar from "@/components/home/Navbar";
+import ProductShow from '@/components/products/ProductShow';
+import ProductListing from '@/components/products/ProductListing';
 
 export default function Products() {
+    const [showProductForm, setShowProductForm] = useState(false);
+
+    const toggleProductForm = () => {
+        setShowProductForm(!showProductForm);
+    };
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <Navbar />
-            <View style={styles.container}>
-                <Text style={styles.title}>Products</Text>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Add Product</Text>
-                </TouchableOpacity>
-            </View>
+            <ProductShow />
+            
+            {/* Fixed Add Button */}
+            <TouchableOpacity 
+                style={styles.addButton}
+                onPress={toggleProductForm}
+            >
+                <Text style={styles.addButtonText}>+</Text>
+            </TouchableOpacity>
+
+            {/* Product Form Modal */}
+            <Modal
+                animationType="slide"
+                transparent={false}
+                visible={showProductForm}
+                onRequestClose={toggleProductForm}
+            >
+                <SafeAreaView style={{ flex: 1 }}>
+                    <View style={styles.modalHeader}>
+                        <Text style={styles.modalTitle}>Add New Product</Text>
+                        <TouchableOpacity onPress={toggleProductForm}>
+                            <Text style={styles.closeButton}>Close</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <ProductListing />
+                </SafeAreaView>
+            </Modal>
         </SafeAreaView>
-        
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#f0f0f0',
     },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 20,
-    },
-    button: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
+    addButton: {
+        position: 'absolute',
+        bottom: 20,
+        right: 20,
+        width: 56,
+        height: 56,
+        borderRadius: 28,
         backgroundColor: 'green',
-        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        elevation: 5,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        zIndex: 999,
     },
-    buttonText: {
+    addButtonText: {
         color: '#fff',
-        fontSize: 16,
+        fontSize: 30,
+        fontWeight: 'bold',
     },
+    modalHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: 15,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
+    },
+    modalTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    closeButton: {
+        color: 'green',
+        fontSize: 16,
+    }
 });
