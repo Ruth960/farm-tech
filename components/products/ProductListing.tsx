@@ -127,16 +127,15 @@ const ProductListing: React.FC = () => {
       formData.append(key, value);
     });
     if (photo) {
-      // Create a proper form data entry for the image
-      // @ts-ignore - This is a workaround for React Native FormData
+      // Use type assertion to fix TypeScript error with FormData
       formData.append('image', {
         uri: photo.uri,
         type: photo.type || 'image/jpeg',
         name: photo.fileName || 'photo.jpg',
-      });
+      } as any);
     }
     try {
-      await axios.post('http://127.0.0.1:8000/admin/api/productlisting/', formData, {
+      await axios.post('http://10.0.2.2:8000/api/products/', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       alert('Product created!');
@@ -159,7 +158,7 @@ const ProductListing: React.FC = () => {
     setShowDatePicker(false);
     if (selectedDate) {
       const today = new Date();
-      // Remove time part for comparison
+      
       today.setHours(0, 0, 0, 0);
       selectedDate.setHours(0, 0, 0, 0);
       if (selectedDate < today) {

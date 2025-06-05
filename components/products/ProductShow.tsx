@@ -28,7 +28,7 @@ const ProductShow: React.FC = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://127.0.0.1:8000/admin/api/productlisting/');
+      const response = await axios.get('http://10.0.2.2:8000/api/products/');
       setProducts(response.data);
       setError(null);
     } catch (err) {
@@ -43,7 +43,7 @@ const ProductShow: React.FC = () => {
     <TouchableOpacity style={styles.productCard}>
       {item.image && (
         <Image 
-          source={{ uri: `http://127.0.0.1:8000${item.image}` }} 
+          source={{ uri: `http://10.0.2.2:8000${item.image}` }} 
           style={styles.productImage} 
           resizeMode="cover"
         />

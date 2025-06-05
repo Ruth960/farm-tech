@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "@/components/home/Navbar";
 import ProductShow from '@/components/products/ProductShow';
 import ProductListing from '@/components/products/ProductListing';
-
+import MarketListing from '@/components/home/MarketListing';
 export default function Products() {
     const [showProductForm, setShowProductForm] = useState(false);
 
@@ -15,8 +15,6 @@ export default function Products() {
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <Navbar />
             <ProductShow />
-            
-            {/* Fixed Add Button */}
             <TouchableOpacity 
                 style={styles.addButton}
                 onPress={toggleProductForm}

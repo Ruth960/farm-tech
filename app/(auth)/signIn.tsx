@@ -29,7 +29,7 @@ export default function SignIn() {
       const data = await response.json();
 
       if (response.ok) {
-        await signIn(data.token, data.user); // Save token and user
+        await signIn(data.token, data.user); 
         router.push('/profile');
       } else {
         alert(data.error || 'Login failed');
@@ -55,7 +55,7 @@ export default function SignIn() {
           elevation: 20,
         }}
       >
-        <Text style={{ fontSize: 28, fontWeight: 'bold', color: 'blue', padding: 10 }}>
+        <Text style={{ fontSize: 28, fontWeight: 'bold', color: 'green', padding: 10 }}>
           Sign In
         </Text>
 
@@ -74,7 +74,7 @@ export default function SignIn() {
         <Text>
           Forgot your password?
           <Text
-            style={{ color: 'rgb(12, 12, 138)', fontStyle: 'italic', fontWeight: 'bold' }}
+            style={{ color: 'green', fontStyle: 'italic', fontWeight: 'bold' }}
             onPress={() => router.push('/(auth)/forgotPassword')}
           >
             {' '}
@@ -84,7 +84,7 @@ export default function SignIn() {
 
         <TouchableOpacity
           style={{
-            backgroundColor: 'rgb(12, 12, 138)',
+            backgroundColor: 'green',
             borderRadius: 25,
             padding: 10,
             width: 150,
@@ -106,7 +106,7 @@ export default function SignIn() {
           Don’t have an account?
           <Text
             style={{
-              color: 'rgb(12, 12, 138)',
+              color: 'green',
               fontStyle: 'italic',
               fontWeight: 'bold',
             }}
