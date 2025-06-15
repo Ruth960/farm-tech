@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
+interface Photo {
+  id: number;
+  image: string;
+  uploaded_at: string;
+}
+
 interface Product {
   id: number;
   title: string;
@@ -12,7 +18,7 @@ interface Product {
   availability_date: string;
   unit: string;
   status: string;
-  photos?: string[];
+  photos?: Photo[];
   image?: string;
 }
 
@@ -29,6 +35,7 @@ const ProductShow: React.FC = () => {
     try {
       setLoading(true);
       const response = await axios.get('http://10.0.2.2:8000/api/products/');
+      console.log('Products response:', response.data);
       setProducts(response.data);
       setError(null);
     } catch (err) {
@@ -41,9 +48,9 @@ const ProductShow: React.FC = () => {
 
   const renderProductItem = ({ item }: { item: Product }) => (
     <TouchableOpacity style={styles.productCard}>
-      {item.image && (
+      {item.photos && item.photos.length > 0 && (
         <Image 
-          source={{ uri: `http://10.0.2.2:8000${item.image}` }} 
+          source={{ uri: `http://10.0.2.2:8000${item.photos[0].image}` }} 
           style={styles.productImage} 
           resizeMode="cover"
         />
